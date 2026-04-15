@@ -1,0 +1,19 @@
+{
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/categories/page": "app/admin/categories/page.js",
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/admin/inventory/page": "app/admin/inventory/page.js",
+  "/admin/reports/sales/page": "app/admin/reports/sales/page.js",
+  "/admin/reports/stocks/page": "app/admin/reports/stocks/page.js",
+  "/admin/reports/transactions/page": "app/admin/reports/transactions/page.js",
+  "/admin/settings/page": "app/admin/settings/page.js",
+  "/admin/suppliers/page": "app/admin/suppliers/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
+  "/api/create-settings-table/route": "app/api/create-settings-table/route.js",
+  "/cashier/pos/page": "app/cashier/pos/page.js",
+  "/cashier/transactions/page": "app/cashier/transactions/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
+}

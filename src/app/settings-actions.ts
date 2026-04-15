@@ -56,17 +56,17 @@ export async function fetchSettings() {
 export async function ensureSettingsTable() {
   const supabase = getAdminClient();
   console.log('=== Ensuring Settings Table Exists ===');
-  
+
   // Try to insert default values - if table doesn't exist, this will fail
   // and we can handle it
   const { error } = await supabase
     .from('settings')
-    .insert([
+    .upsert([
       { key: 'shop_name', value: 'Motor Shop Inventory' },
       { key: 'tax_rate', value: '0' },
       { key: 'currency', value: 'PHP' },
     ], { onConflict: 'key' });
-  
+
   if (error) {
     console.error('Table access error:', error);
     return { 

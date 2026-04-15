@@ -1,0 +1,42 @@
+{
+  "node": {
+    "0064611d0118be7a683eadd42509968cdc57ef2777": {
+      "workers": {
+        "app/admin/settings/page": {
+          "moduleId": 83923,
+          "async": false,
+          "exportedName": "fetchSettings",
+          "filename": "src/app/settings-actions.ts"
+        },
+        "app/cashier/pos/page": {
+          "moduleId": 62657,
+          "async": false,
+          "exportedName": "fetchSettings",
+          "filename": "src/app/settings-actions.ts"
+        }
+      },
+      "filename": "src/app/settings-actions.ts",
+      "exportedName": "fetchSettings"
+    },
+    "40084ad273ddf58bdc9ea128d875157b9febfe0f50": {
+      "workers": {
+        "app/admin/settings/page": {
+          "moduleId": 83923,
+          "async": false,
+          "exportedName": "saveSettings",
+          "filename": "src/app/settings-actions.ts"
+        },
+        "app/cashier/pos/page": {
+          "moduleId": 62657,
+          "async": false,
+          "exportedName": "saveSettings",
+          "filename": "src/app/settings-actions.ts"
+        }
+      },
+      "filename": "src/app/settings-actions.ts",
+      "exportedName": "saveSettings"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "+YGmWRCZgIQ6BdSmPx2t4X9ZLj7pd5lcKZPbJ3JJbi4="
+}
