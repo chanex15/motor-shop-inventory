@@ -176,7 +176,7 @@ export default function POSPage() {
           </Card>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {filteredInventory.map((item) => (
               <Card
                 key={item.id}
@@ -197,7 +197,7 @@ export default function POSPage() {
                         <img
                           src={item.image_url}
                           alt={item.name}
-                          className="h-40 w-40 object-cover rounded border"
+                          className="w-full h-32 object-cover rounded border"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
