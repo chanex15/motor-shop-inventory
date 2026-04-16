@@ -197,7 +197,7 @@ export default function POSPage() {
                         <img
                           src={item.image_url}
                           alt={item.name}
-                          className="h-32 w-32 object-cover rounded border"
+                          className="h-40 w-40 object-cover rounded border"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
