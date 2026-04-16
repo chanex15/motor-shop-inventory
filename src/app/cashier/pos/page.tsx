@@ -192,15 +192,29 @@ export default function POSPage() {
                 }
               >
                 <CardContent className="p-4">
-                  <p className="font-medium truncate">{item.name}</p>
-                  <p className="text-xs text-muted-foreground">{item.sku}</p>
-                  <div className="flex items-center justify-between mt-2">
-                    <p className="text-lg font-bold text-primary">₱{Number(item.selling_price).toFixed(2)}</p>
-                    <Badge variant={Number(item.stock_quantity) <= Number(item.low_stock_threshold) ? 'destructive' : 'default'}>
-                      {Number(item.stock_quantity) || 0} left
-                    </Badge>
-                  </div>
-                </CardContent>
+                    {item.image_url && (
+                      <div className="mb-3 flex justify-center">
+                        <img
+                          src={item.image_url}
+                          alt={item.name}
+                          className="h-32 w-32 object-cover rounded border"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    )}
+                    <p className="font-medium truncate">{item.name}</p>
+                    
+                    {/* SKU */}
+                    <p className="text-xs text-muted-foreground">{item.sku}</p>
+                    <div className="flex items-center justify-between mt-2">
+                      <p className="text-lg font-bold text-primary">₱{Number(item.selling_price).toFixed(2)}</p>
+                      <Badge variant={Number(item.stock_quantity) <= Number(item.low_stock_threshold) ? 'destructive' : 'default'}>
+                        {Number(item.stock_quantity) || 0} left
+                      </Badge>
+                    </div>
+                  </CardContent>
               </Card>
             ))}
           </div>
