@@ -180,12 +180,25 @@ export default function InventoryPage() {
   };
 
   const handleDelete = async (id: string) => {
- if (confirm('Are you sure you want to delete this item?')) {
- const result = await deleteItem(id);
- if (!result.success) {
- alert(result.error || 'Failed to delete item. This product may have sales history.');
- }
- }
+  if (confirm('Are you sure you want to delete this product?')) {
+    try {
+      // Soft delete - set deleted_at timestamp
+      const { error } = await supabase
+        .from('inventory')
+        .update({ 
+          deleted_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', id);
+
+      if (error) throw error;
+      
+      // Refresh inventory
+      fetchInventory();
+    } catch (err: any) {
+      alert(err.message || 'Failed to delete product');
+    }
+  }
 };
 
   if (loading) {
