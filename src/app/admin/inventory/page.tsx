@@ -180,10 +180,13 @@ export default function InventoryPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm('Are you sure you want to delete this item?')) {
-      await deleteItem(id);
-    }
-  };
+ if (confirm('Are you sure you want to delete this item?')) {
+ const result = await deleteItem(id);
+ if (!result.success) {
+ alert(result.error || 'Failed to delete item. This product may have sales history.');
+ }
+ }
+};
 
   if (loading) {
     return <LoadingSpinner />;
