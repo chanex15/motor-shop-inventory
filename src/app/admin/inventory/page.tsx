@@ -182,41 +182,12 @@ export default function InventoryPage() {
  const handleDelete = async (id: string) => {
   if (confirm('Are you sure you want to delete this product?')) {
     try {
-      // Create supabase client
-      const supabase = createClient();
-      
-      // Soft delete - set deleted_at timestamp
-      const { error } = await supabase
-        .from('inventory')
-        .update({
-          deleted_at: new Date().toISOString(),
-          updated_at: new Date().toISOString()
-        })
-        .eq('id', id);
-
-      if (error) throw error;
-      
-      // The useInventory hook should automatically refresh
-      // Or you can manually call a refresh if needed
-      window.location.reload(); // Simple reload to refresh data
+      await deleteItem(id);
     } catch (err: any) {
       alert(err.message || 'Failed to delete product');
     }
   }
 };
-      
-      // Refresh inventory
-      fetchInventory();
-    } catch (err: any) {
-      alert(err.message || 'Failed to delete product');
-    }
-  }
-};
-
-  if (loading) {
-    return <LoadingSpinner />;
-  }
-
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
