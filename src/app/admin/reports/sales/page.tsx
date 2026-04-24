@@ -57,7 +57,7 @@ export default function SalesReportPage() {
       sale.profiles?.full_name || 'Unknown',
       sale.customer_name || 'Walk-in',
       sale.sale_items?.length || 0,
-      `PHP ${Number(sale.total).toFixed(2)}`,
+      `₱ ${Number(sale.total).toFixed(2)}`,
     ]);
 
     const doc = generatePDFReport({
@@ -66,9 +66,9 @@ export default function SalesReportPage() {
       title: 'Sales Report',
       subtitle: `${period.charAt(0).toUpperCase() + period.slice(1)} Report - Generated ${new Date().toLocaleDateString()}`,
       totals: [
-        { label: 'Total Revenue', value: `PHP ${totalRevenue.toFixed(2)}` },
+        { label: 'Total Revenue', value: `₱ ${totalRevenue.toFixed(2)}` },
         { label: 'Total Transactions', value: totalTransactions.toString() },
-        { label: 'Average Sale', value: `PHP ${averageSale.toFixed(2)}` },
+        { label: 'Average Sale', value: `₱ ${averageSale.toFixed(2)}` },
       ],
     });
 
@@ -136,7 +136,7 @@ export default function SalesReportPage() {
                       <td className="p-3">{sale.profiles?.full_name || 'Unknown'}</td>
                       <td className="p-3">{sale.customer_name || 'Walk-in'}</td>
                       <td className="p-3">{sale.sale_items?.length || 0}</td>
-                      <td className="p-3 font-medium">PHP{Number(sale.total).toFixed(2)}</td>
+                      <td className="p-3 font-medium">₱{Number(sale.total).toFixed(2)}</td>
                     </tr>
                   ))}
                 </tbody>
